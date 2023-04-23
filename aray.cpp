@@ -17,7 +17,7 @@ void tagihan(string nama)
             jumlah += bayar[0][i];
         }
         sisa = harusBayar - jumlah;
-        cout << sisa << endl;
+        cout << "Dimas kurang membayar uang sebesar: " << sisa << endl;
     }
     else if (nama == "Tedjo")
     {
@@ -28,11 +28,11 @@ void tagihan(string nama)
             jumlah += bayar[1][i];
         }
         sisa = harusBayar - jumlah;
-        cout << sisa << endl;
+        cout << "Tedjo kurang membayar uang sebesar: " << sisa << endl;
     }
     else
     {
-        cout << "Tolol" << endl;
+        cout << "Nama siswa tidak ditemukan" << endl;
     }
 }
 
@@ -45,30 +45,60 @@ void pendapatanBulanan(int x)
         {
             jumlah = jumlah + bayar[i][x];
         }
-        cout << jumlah << endl;
+        cout << "Pendapatan pada bulan ke " << x << ": " << jumlah << endl;
     }
 }
 
-void laporanPembayaran(string nama){
+void laporanTunggu(string nama)
+{
+    if (nama == "Dimas")
+    {
+        cout << "Dimas belum membayar pada bulan ke: " << endl;
+        for (int i = 1; i < 7; i++)
+        {
+            if (bayar[0][i] == 0)
+            {
+                cout<< i << endl;
+            }
+        }
+    }
+    else if (nama == "Tedjo")
+    {
+        cout << "Tedjo belum membayar pada bulan ke: " << endl;
+        for (int i = 1; i < 7; i++)
+        {
+            if (bayar[1][i] == 0)
+            {
+                cout<< i << endl;
+            }
+        }
+    }
+    else {
+        cout << "Nama tidak ditemukan" << endl;
+    }
+}
+
+void laporanPembayaran(string nama)
+{
     if (nama == "Dimas")
     {
         cout << nama << endl;
         for (int i = 1; i < 7; i++)
         {
-            cout << "Bulan ke "<< i << " = " << bayar[0][i] << endl;
+            cout << "Bulan ke " << i << " = " << bayar[0][i] << endl;
         }
     }
     else if (nama == "Tedjo")
     {
-cout << nama << endl;
+        cout << nama << endl;
         for (int i = 1; i < 7; i++)
         {
-            cout << "Bulan ke "<< i << " = " << bayar[1][i] << endl;
+            cout << "Bulan ke " << i << " = " << bayar[1][i] << endl;
         }
     }
     else
     {
-        cout << "Tolol" << endl;
+        cout << "Nama tidak ditemukan" << endl;
     }
 }
 
@@ -76,8 +106,9 @@ int main()
 {
     // tagihan("Tedjo");
     // pendapatanBulanan(1);
-    laporanPembayaran("Tedjo");
-    system("pause");
+    laporanTunggu("Tedjo");
+    // laporanPembayaran("Tedjo");
 
+    system("pause");
     return 0;
 }
